@@ -1,0 +1,30 @@
+2022-08-25 22:14:16,413 - тест - WARNING - Не удача! Совпадений нет!
+2022-08-25 22:14:16,413 - тест - ERROR - Совпадений нет!
+Traceback (most recent call last):
+  File "C:\Users\мвидео\PycharmProjects\education\Learn_logging\Ex4.Pritty\Logging_with_filter.py", line 58, in luck_numbers
+    raise ValueError
+ValueError
+2022-08-25 22:14:16,413 - тест - WARNING - Не удача! Совпадений нет!
+2022-08-25 22:14:16,413 - тест - ERROR - Совпадений нет!
+Traceback (most recent call last):
+  File "C:\Users\мвидео\PycharmProjects\education\Learn_logging\Ex4.Pritty\Logging_with_filter.py", line 58, in luck_numbers
+    raise ValueError
+ValueError
+2022-08-25 22:14:16,413 - тест - WARNING - Не удача! Совпадений нет!
+2022-08-25 22:14:16,413 - тест - ERROR - Совпадений нет!
+Traceback (most recent call last):
+  File "C:\Users\мвидео\PycharmProjects\education\Learn_logging\Ex4.Pritty\Logging_with_filter.py", line 58, in luck_numbers
+    raise ValueError
+ValueError
+2022-08-25 22:14:16,413 - тест - WARNING - Не удача! Совпадений нет!
+2022-08-25 22:14:16,413 - тест - ERROR - Совпадений нет!
+Traceback (most recent call last):
+  File "C:\Users\мвидео\PycharmProjects\education\Learn_logging\Ex4.Pritty\Logging_with_filter.py", line 58, in luck_numbers
+    raise ValueError
+ValueError
+2022-08-25 22:14:16,423 - тест - WARNING - Не удача! Совпадений нет!
+2022-08-25 22:14:16,423 - тест - ERROR - Совпадений нет!
+Traceback (most recent call last):
+  File "C:\Users\мвидео\PycharmProjects\education\Learn_logging\Ex4.Pritty\Logging_with_filter.py", line 58, in luck_numbers
+    raise ValueError
+ValueError
