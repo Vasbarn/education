@@ -74,14 +74,31 @@
 
 # 4 Генераторы
 
+
 def fib_generation(number: int):
 	current_num = 0
 	next_num = 1
 	for _ in range(number):
 		yield current_num
 		current_num, next_num = next_num, current_num + next_num
+		if current_num > 10 ** 6:
+			return
+
+
+def squar(numbers):
+	for elem in numbers:
+		yield elem ** 2
 
 
 fin_g = fib_generation(10)
 for elem in fin_g:
+	print(elem)
+
+print()
+# генератор от генератора
+print(sum(squar(fib_generation(10))))
+
+# генераторное выражение
+cubs_number_gen = (num ** 3 for num in range(10))
+for elem in cubs_number_gen:
 	print(elem)
