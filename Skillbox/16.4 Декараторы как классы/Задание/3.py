@@ -6,44 +6,47 @@ from typing import Callable, Any
 import functools
 import datetime
 
-# TODO не смог понять как корректно передать аргумент
-# def decorate_class(date_format: str = "yyyy") -> Callable:
-# 	"""Декоратор для логирования функций, с указанием формата даты логирования"""
-def decorate_class_into(func: Callable) -> Callable:
-	@functools.wraps(func)
-	def wrapped_func(*args, **kwargs) -> Any:
-		print("{date} - Работает функция '{name_func}'".format(
-			date=datetime.datetime.now(),
-			name_func=func.__name__
-		))
-		print("Порядковые аргументы:")
-		print("Именованные аргументы:")
-		result = func(*args, **kwargs)
-		return result
-	return wrapped_func
-	# return decorate_class_into
+
+def decorate_class(date_format: str = '%d.%m.%Y %H:%M') -> Callable:
+	"""Декоратор для логирования функций, с указанием формата даты логирования"""
+	def decorate_class_into(func: Callable) -> Callable:
+		@functools.wraps(func)
+		def wrapped_func(*args, **kwargs) -> Any:
+			print("{date} - Работает функция '{name_func}'".format(
+				date=datetime.datetime.now().strftime(date_format),
+				name_func=func.__name__
+			))
+
+			result = func(*args, **kwargs)
+			print("Порядковые аргументы:", *args)
+			print("Именованные аргументы:", **kwargs)
+			return result
+		return wrapped_func
+	return decorate_class_into
 
 
-def for_all_method(cls):
-	# @functools.wraps(decorator)
-	# def decorate(cls):
-	# 	"""Декоратор для применения другого декоратора ко всем* функциям класса"""
-	for method in dir(cls):
-		if method.startswith("__"):
-			continue
-		current_method = getattr(cls, method)
-		setattr(cls, method, decorate_class_into(current_method))
-	return cls
-	# return decorate
+def for_all_method(decorator):
+	@functools.wraps(decorator)
+	def decorate(cls):
+		"""Декоратор для применения другого декоратора ко всем* функциям класса"""
+		for method in dir(cls):
+			if method.startswith("__"):
+				continue
+			current_method = getattr(cls, method)
+			setattr(cls, method, decorator(current_method))
+		return cls
+	return decorate
 
 
-@for_all_method
+@for_all_method(decorate_class())
 class A:
 
-	def print_name(self):
+	@classmethod
+	def print_name(cls, *args, **kwargs):
 		print("Я класс")
 
-	def say_hello(self):
+	@classmethod
+	def say_hello(cls, *args, **kwargs):
 		print("Hello")
 
 
