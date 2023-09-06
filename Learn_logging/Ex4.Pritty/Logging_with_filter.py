@@ -3,9 +3,6 @@ import random
 from typing import List
 
 
-
-
-
 log_1 = logging.getLogger("Какой-то логгер")
 log_1.setLevel(logging.INFO)
 log_1.name = "тест"
